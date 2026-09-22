@@ -7,5 +7,5 @@
  */
 window.SITE = {
   repo: "data-resources-mm/data-resources-mm.github.io",
-  suggestEndpoint: "https://script.google.com/macros/s/AKfycbwtQArJ5oaq7mAZieZFIxPJD1bwk3i-OIWbjgNEg1R6kTSOD_b3cSt4YJ-3TLsjhZmDgQ/exec",
+  suggestEndpoint: "https://script.google.com/macros/s/AKfycbz8APKRzydnLmfBKRc2CLLGGjfUAJ9TBFzYyLHAd0foG020JzWg7ZOVRXzLWcp7NIibaw/exec",
 };
