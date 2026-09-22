@@ -4,7 +4,10 @@
 
   const FIELDS = window.FIELDS;
   const OVERLAPS = window.OVERLAPS || {};
-  const RESOURCES = window.RESOURCES;
+  const RESOURCES = window.RESOURCES || {};
+  // A file that failed to load (or has the wrong content) shows up in the browser console by name.
+  [["FIELDS", "data.js"], ["RESOURCES", "resources.js"], ["I18N", "i18n.js"], ["QUOTES", "quotes.js"], ["SCHOOLS", "schools.js"], ["SITE", "config.js"]]
+    .forEach(([v, f]) => { if (!window[v]) console.error(`Data Resources MM: ${f} did not load or has the wrong content (window.${v} is missing).`); });
   const BY_ID = {};
   FIELDS.forEach((f, i) => { f.index = i; BY_ID[f.id] = f; });
   // Tracks (e.g. AI Engineering → Models / Deployment): one circle, several sub-roles.
@@ -940,11 +943,14 @@
   /* ---------------- Language toggle ---------------- */
   function applyStatic() {
     document.documentElement.lang = LANG;
-    document.title = T("meta.title");
-    $$("[data-i18n]").forEach((el) => (el.textContent = T(el.dataset.i18n)));
-    $$("[data-i18n-html]").forEach((el) => (el.innerHTML = T(el.dataset.i18nHtml)));
-    $$("[data-i18n-aria]").forEach((el) => el.setAttribute("aria-label", T(el.dataset.i18nAria)));
-    $$("[data-i18n-ph]").forEach((el) => el.setAttribute("placeholder", T(el.dataset.i18nPh)));
+    // Only replace text when a translation exists, so the English written in index.html stays
+    // on screen (instead of raw keys like "hero.title") if i18n.js is missing or broken.
+    const has = (k) => T(k) !== k;
+    if (has("meta.title")) document.title = T("meta.title");
+    $$("[data-i18n]").forEach((el) => { if (has(el.dataset.i18n)) el.textContent = T(el.dataset.i18n); });
+    $$("[data-i18n-html]").forEach((el) => { if (has(el.dataset.i18nHtml)) el.innerHTML = T(el.dataset.i18nHtml); });
+    $$("[data-i18n-aria]").forEach((el) => { if (has(el.dataset.i18nAria)) el.setAttribute("aria-label", T(el.dataset.i18nAria)); });
+    $$("[data-i18n-ph]").forEach((el) => { if (has(el.dataset.i18nPh)) el.setAttribute("placeholder", T(el.dataset.i18nPh)); });
     applySuggestMode();
     renderQuote();
     // the button shows the language you'd switch TO
