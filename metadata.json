@@ -1,6 +1,0 @@
-{
-  "name": "Data Analysis Resources",
-  "description": "A curated collection of learning resources for Data Analysis, Data Engineering, and Data Science & AI/ML.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
