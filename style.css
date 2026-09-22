@@ -457,7 +457,7 @@ main { max-width: 1200px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 40px); }
 .sg-form[hidden] { display: none; }
 .sg-form label { display: grid; gap: 5px; font-size: .82rem; font-weight: 600; }
 .sg-form label i { font-style: normal; font-weight: 400; color: var(--muted); }
-.sg-form input[type=text], .sg-form input[type=url], .sg-form select, .sg-form textarea {
+.sg-form input[type=text], .sg-form input[type=url], .sg-form input[type=email], .sg-form select, .sg-form textarea {
   font: inherit; font-weight: 400; font-size: .92rem; color: var(--ink); background: var(--bg);
   border: 1px solid var(--line-strong); border-radius: 10px; padding: 9px 11px; width: 100%;
 }
@@ -590,7 +590,7 @@ html { -webkit-tap-highlight-color: transparent; }
 
 @media (max-width: 900px) {
   /* 1a — 16px form text so iPhone doesn't zoom in */
-  .sg-form input[type=text], .sg-form input[type=url], .sg-form select, .sg-form textarea { font-size: 16px; }
+  .sg-form input[type=text], .sg-form input[type=url], .sg-form input[type=email], .sg-form select, .sg-form textarea { font-size: 16px; }
 
   /* hero: tighter; quote moves below the map */
   .hero { margin-bottom: 20px; }
@@ -662,3 +662,7 @@ html { -webkit-tap-highlight-color: transparent; }
   .mb-title .dot { background: var(--c); flex: none; }
   .mb-map { margin-left: 4px; }
 }
+
+/* required email in the Suggest forms */
+.sg-hint { font-size: .76rem; font-weight: 400; color: var(--muted); }
+.sg-email > span::after { content: " *"; color: var(--muted); }

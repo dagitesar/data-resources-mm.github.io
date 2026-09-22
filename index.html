@@ -177,8 +177,10 @@
           <label><span data-i18n="sg.f.details">Details</span>
             <textarea name="details" rows="5" required data-i18n-ph="sg.ph.details" placeholder="What should change, and why?"></textarea></label>
           <label class="hp" aria-hidden="true">Website<input name="website" type="text" tabindex="-1" autocomplete="off"></label>
-          <label><span data-i18n="sg.f.contact">Your email or Telegram (optional)</span>
-            <input name="contact" type="text" autocomplete="email" data-i18n-ph="sg.ph.contact" placeholder="Only used if we need to ask you something"></label>
+          <label class="sg-email"><span data-i18n="sg.f.contact">Your email</span>
+            <input name="contact" type="email" inputmode="email" autocomplete="email" required maxlength="254" data-i18n-ph="sg.ph.contact" placeholder="you@example.com">
+            <small class="sg-hint" data-i18n="sg.hint.contact">Only used to follow up on this suggestion. Never shown publicly.</small></label>
+          <p class="sg-err sg-email-err" hidden data-i18n="sg.err.email">Please enter a valid email address.</p>
           <p class="sg-err" hidden data-i18n="sg.err.details">Please write a few words about the change.</p>
           <p class="sg-err sg-send-err" hidden data-i18n="sg.err.send">Couldn’t send. Check your connection and try again.</p>
           <button type="submit" class="btn solid sg-submit" data-i18n="sg.submit">Send suggestion</button>
@@ -246,8 +248,10 @@
             <textarea name="notes" rows="3" data-i18n-ph="sg.ph.why" placeholder="Who is it for, what does it teach well?"></textarea></label>
           <label class="sg-check"><input type="checkbox" name="owner"><span data-i18n="sg.f.owner">I run or work for this school / resource</span></label>
           <label class="hp" aria-hidden="true">Website<input name="website" type="text" tabindex="-1" autocomplete="off"></label>
-          <label><span data-i18n="sg.f.contact">Your email or Telegram (optional)</span>
-            <input name="contact" type="text" autocomplete="email" data-i18n-ph="sg.ph.contact" placeholder="Only used if we need to ask you something"></label>
+          <label class="sg-email"><span data-i18n="sg.f.contact">Your email</span>
+            <input name="contact" type="email" inputmode="email" autocomplete="email" required maxlength="254" data-i18n-ph="sg.ph.contact" placeholder="you@example.com">
+            <small class="sg-hint" data-i18n="sg.hint.contact">Only used to follow up on this suggestion. Never shown publicly.</small></label>
+          <p class="sg-err sg-email-err" hidden data-i18n="sg.err.email">Please enter a valid email address.</p>
           <p class="sg-err" hidden data-i18n="sg.err.res">Please add a name and a full link (starting with https://).</p>
           <p class="sg-err sg-send-err" hidden data-i18n="sg.err.send">Couldn’t send. Check your connection and try again.</p>
           <button type="submit" class="btn solid sg-submit" data-i18n="sg.submit">Send suggestion</button>

@@ -857,7 +857,8 @@
     $("#sgLede").textContent = T(ENDPOINT ? "sg.lede" : "sg.ledeGh");
     $("#sgNote").textContent = T(ENDPOINT ? "sg.note" : "sg.noteGh");
     $$(".sg-submit", suggest).forEach((b) => (b.textContent = T(ENDPOINT ? "sg.submit" : "sg.submitGh")));
-    $$('.sg-form [name="contact"]', suggest).forEach((i) => (i.closest("label").hidden = !ENDPOINT));
+    // email is required when suggestions go to the Sheet; the GitHub fallback identifies people by account
+    $$('.sg-form [name="contact"]', suggest).forEach((i) => { i.closest("label").hidden = !ENDPOINT; i.required = !!ENDPOINT; });
     $$(".sg-done[data-ref]", suggest).forEach((d) => ($(".sg-done-body", d).textContent = T("sg.sent.body", { id: d.dataset.ref })));
   }
 
@@ -865,13 +866,18 @@
      With an endpoint: POST to the Apps Script (text/plain avoids a CORS preflight;
      the response is opaque, so a network error is the only failure we can see).
      Without one: open a pre-filled GitHub issue. */
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
   async function submitSuggestion(form, type, data, ghTitle, ghBody) {
     if (form.elements.website && form.elements.website.value) { showDone(form, newId()); return; } // bot trap
     if (!ENDPOINT) { openIssue(ghTitle, ghBody); return; }
+    const email = (form.elements.contact && form.elements.contact.value.trim()) || "";
+    const emailOk = EMAIL_RE.test(email);
+    $(".sg-email-err", form).hidden = emailOk;
+    if (!emailOk) { form.elements.contact.focus(); return; }
     const id = newId();
     const payload = {
       v: 1, id, type, data,
-      contact: (form.elements.contact && form.elements.contact.value.trim()) || "",
+      contact: email,
       page_lang: LANG, submitted_at: new Date().toISOString(),
       elapsed_ms: Date.now() - (openedAt[form.closest(".sg-card").dataset.sg] || Date.now()),
     };
