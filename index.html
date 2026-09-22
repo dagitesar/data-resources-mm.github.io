@@ -3,331 +3,274 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Data Analysis Resources</title>
+  <title>Data Resources MM — Find your way into data</title>
+  <meta name="description" content="A curated map of learning resources for Data Analysis, Data Engineering, and Business Analysis, Data Analysis & BI, Data Science, Machine Learning and AI Engineering — for aspiring data professionals in Myanmar.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Inter:wght@400;500;600&family=Noto+Sans+Myanmar:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script>
+    // Apply saved theme before paint (avoids a flash)
+    try { var t = localStorage.getItem("drm-theme"); if (t) document.documentElement.dataset.theme = t; var l = localStorage.getItem("drm-lang"); if (l) document.documentElement.lang = l; } catch (e) {}
+  </script>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <h1>Data Analysis Resources</h1>
-    <blockquote>
-      A curated collection of learning resources for Data Analysis, Data Engineering, and Data Science &amp; AI/ML. This page is intended as a simple reference for beginners and intermediate learners.
-    </blockquote>
+  <!-- ============ Top bar ============ -->
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Data Resources MM home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span>Data Resources <b>MM</b></span>
+    </a>
+    <nav class="topnav" aria-label="Main">
+      <a href="https://github.com/data-resources-mm/data-resources-mm.github.io/issues/new" target="_blank" rel="noopener" data-i18n="nav.suggest" data-suggest>Suggest</a>
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle dark mode" data-i18n-aria="nav.theme">
+        <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="lang-btn" id="langToggle" type="button" aria-label="Switch language" data-i18n-aria="nav.lang">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.5 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.5-3.8-9S9.5 5.5 12 3z"/></svg>
+        <span id="langLabel">မြန်မာ</span>
+      </button>
+    </nav>
   </header>
 
-  <!-- Navigation Bar -->
-  <nav class="navbar" aria-label="Main Navigation">
-    <ul class="nav-menu">
-      <li class="nav-item">
-        <details class="nav-collapsible">
-          <summary class="nav-link">Data Analysis <span class="arrow">▾</span></summary>
-          <ul class="dropdown-menu">
-            <li><a href="#data-analysis">Overview</a></li>
-            <li><a href="#data-analysis-beginner">Beginner</a></li>
-            <li><a href="#data-analysis-intermediate">Intermediate</a></li>
-          </ul>
-        </details>
-      </li>
-      <li class="nav-item">
-        <details class="nav-collapsible">
-          <summary class="nav-link">Data Engineering <span class="arrow">▾</span></summary>
-          <ul class="dropdown-menu">
-            <li><a href="#data-engineering">Overview</a></li>
-            <li><a href="#data-engineering-beginner">Beginner</a></li>
-            <li><a href="#data-engineering-intermediate">Intermediate</a></li>
-          </ul>
-        </details>
-      </li>
-      <li class="nav-item">
-        <details class="nav-collapsible">
-          <summary class="nav-link">Data Science &amp; AI/ML <span class="arrow">▾</span></summary>
-          <ul class="dropdown-menu">
-            <li><a href="#data-science-ai-ml">Overview</a></li>
-            <li><a href="#data-science-ai-ml-beginner">Beginner</a></li>
-            <li><a href="#data-science-ai-ml-intermediate">Intermediate</a></li>
-          </ul>
-        </details>
-      </li>
-    </ul>
-  </nav>
+  <!-- phone only: sticky bar while reading a field's tree -->
+  <div class="minibar" id="minibar" aria-hidden="true">
+    <button type="button" data-mini="prev" aria-label="Previous field" data-i18n-aria="mini.prev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <p class="mb-title"><i class="dot"></i><span id="mbName"></span></p>
+    <button type="button" data-mini="next" aria-label="Next field" data-i18n-aria="mini.next"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+    <button type="button" data-mini="map" class="mb-map" aria-label="Back to the map" data-i18n-aria="mini.map"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+  </div>
 
-  <!-- Learning Path -->
-  <section id="learning-path">
-    <h2>Suggested Learning Path</h2>
-    <ol>
-      <li>Data Analysis</li>
-      <li>Data Engineering</li>
-      <li>Data Science &amp; AI/ML</li>
-    </ol>
-    <p class="learning-path-note">
-      Note: This is only a suggested order based on foundational concepts. Learners can explore topics in any sequence based on their personal background, interests, and career goals.
-    </p>
-  </section>
+  <main id="top">
 
-  <hr>
-
-  <!-- Main Content -->
-  <main>
-
-    <!-- 1. Data Analysis -->
-    <section id="data-analysis">
-      <h2>Data Analysis</h2>
-      <p class="section-description">
-        Resources for learning data analysis using spreadsheets, SQL, Python, visualization, and analytical thinking.
+    <!-- ============ Hero ============ -->
+    <section class="hero">
+      <div class="hero-text">
+      <p class="eyebrow" data-i18n="hero.eyebrow">A curated map for aspiring data professionals in Myanmar</p>
+      <h1 data-i18n-html="hero.title">Find your way <span class="nowrap">into data.</span></h1>
+      <p class="lede" data-i18n-html="hero.lede">
+        A reminder before you start: we learn data to <em>solve</em> real problems — not to create new ones from it. Start with the question, respect the people behind the numbers, and let the data serve better decisions.
       </p>
-
-      <!-- Beginner -->
-      <article id="data-analysis-beginner">
-        <h3>Beginner</h3>
-
-        <h4>Courses</h4>
-        <ul>
-          <li><strong>Google Data Analytics Professional Certificate</strong> — <a href="https://www.coursera.org/professional-certificates/google-data-analytics">https://www.coursera.org/professional-certificates/google-data-analytics</a></li>
-          <li><strong>FreeCodeCamp Data Analysis with Python</strong> — <a href="https://www.freecodecamp.org/learn/data-analysis-with-python/">https://www.freecodecamp.org/learn/data-analysis-with-python/</a></li>
-        </ul>
-
-        <h4>Documentation</h4>
-        <ul>
-          <li><strong>Pandas Documentation</strong> — <a href="https://pandas.pydata.org/docs/">https://pandas.pydata.org/docs/</a></li>
-          <li><strong>Python Official Documentation</strong> — <a href="https://docs.python.org/3/">https://docs.python.org/3/</a></li>
-        </ul>
-
-        <h4>YouTube</h4>
-        <ul>
-          <li><strong>Alex The Analyst</strong> — <a href="https://www.youtube.com/@AlexTheAnalyst">https://www.youtube.com/@AlexTheAnalyst</a></li>
-          <li><strong>Luke Barousse</strong> — <a href="https://www.youtube.com/@LukeBarousse">https://www.youtube.com/@LukeBarousse</a></li>
-        </ul>
-
-        <h4>Practice</h4>
-        <ul>
-          <li><strong>SQLBolt</strong> — <a href="https://sqlbolt.com/">https://sqlbolt.com/</a></li>
-          <li><strong>Kaggle Learn</strong> — <a href="https://www.kaggle.com/learn">https://www.kaggle.com/learn</a></li>
-        </ul>
-
-        <h4>Books</h4>
-        <ul>
-          <li><strong>Python for Data Analysis by Wes McKinney</strong> — <a href="https://wesmckinney.com/book/">https://wesmckinney.com/book/</a></li>
-          <li><strong>Storytelling with Data by Cole Nussbaumer Knaflic</strong> — <a href="https://www.storytellingwithdata.com/books">https://www.storytellingwithdata.com/books</a></li>
-        </ul>
-      </article>
-
-      <!-- Intermediate -->
-      <article id="data-analysis-intermediate">
-        <h3>Intermediate</h3>
-
-        <h4>Courses</h4>
-        <ul>
-          <li><strong>Mode Analytics SQL Tutorial</strong> — <a href="https://mode.com/sql-tutorial/">https://mode.com/sql-tutorial/</a></li>
-          <li><strong>DataCamp Data Analyst with Python Track</strong> — <a href="https://www.datacamp.com/tracks/data-analyst-with-python">https://www.datacamp.com/tracks/data-analyst-with-python</a></li>
-        </ul>
-
-        <h4>Documentation</h4>
-        <ul>
-          <li><strong>Polars Documentation</strong> — <a href="https://pola-rs.github.io/polars/py-polars/html/reference/">https://pola-rs.github.io/polars/py-polars/html/reference/</a></li>
-          <li><strong>Seaborn Documentation</strong> — <a href="https://seaborn.pydata.org/">https://seaborn.pydata.org/</a></li>
-        </ul>
-
-        <h4>YouTube</h4>
-        <ul>
-          <li><strong>StatQuest with Josh Starmer</strong> — <a href="https://www.youtube.com/@statquest">https://www.youtube.com/@statquest</a></li>
-          <li><strong>Corey Schafer</strong> — <a href="https://www.youtube.com/@coreyms">https://www.youtube.com/@coreyms</a></li>
-        </ul>
-
-        <h4>Practice</h4>
-        <ul>
-          <li><strong>LeetCode Database Problems</strong> — <a href="https://leetcode.com/problemset/database/">https://leetcode.com/problemset/database/</a></li>
-          <li><strong>StrataScratch</strong> — <a href="https://www.stratascratch.com/">https://www.stratascratch.com/</a></li>
-        </ul>
-
-        <h4>Books</h4>
-        <ul>
-          <li><strong>Practical Statistics for Data Scientists</strong> — <a href="https://www.oreilly.com/library/view/practical-statistics-for/9781492072935/">https://www.oreilly.com/library/view/practical-statistics-for/9781492072935/</a></li>
-          <li><strong>SQL for Data Analysis by Cathy Tanimura</strong> — <a href="https://www.oreilly.com/library/view/sql-for-data/9781492088776/">https://www.oreilly.com/library/view/sql-for-data/9781492088776/</a></li>
-        </ul>
-      </article>
+      </div>
+      <figure class="qotd" id="qotd" aria-live="polite">
+        <p class="eyebrow qotd-kicker" data-i18n="qotd.kicker">Quote of the day</p>
+        <svg class="qotd-mark" viewBox="0 0 32 24" aria-hidden="true"><path d="M0 24V14C0 6 4 1.5 12 0l1.5 3C9 4.5 7 7 6.8 11H12v13zm18 0V14c0-8 4-12.5 12-14l1.5 3C27 4.5 25 7 24.8 11H30v13z"/></svg>
+        <blockquote class="qotd-text" id="qotdText"></blockquote>
+        <figcaption class="qotd-by"><b id="qotdBy"></b><span id="qotdRole"></span></figcaption>
+        <button type="button" class="qotd-next" id="qotdNext" data-i18n="qotd.next">Another quote</button>
+      </figure>
     </section>
 
-    <hr>
+    <!-- ============ Venn + Tree ============ -->
+    <section class="stage" id="map" aria-label="Interactive map of data fields">
+      <svg class="wires" id="wires" aria-hidden="true"><path id="wire"/><circle id="wireDot" r="5"/></svg>
 
-    <!-- 2. Data Engineering -->
-    <section id="data-engineering">
-      <h2>Data Engineering</h2>
-      <p class="section-description">
-        Resources for learning data pipelines, databases, cloud platforms, orchestration, and data infrastructure.
-      </p>
+      <div class="venn-wrap">
+        <svg class="venn" id="venn" viewBox="0 0 500 460" role="group" aria-label="Diagram of data fields, sized by the tools each one uses"></svg>
+        <p class="venn-note" data-i18n="venn.note">Tap or click a field you’re interested in.</p>
+      </div>
 
-      <!-- Beginner -->
-      <article id="data-engineering-beginner">
-        <h3>Beginner</h3>
-
-        <h4>Courses</h4>
-        <ul>
-          <li><strong>Data Engineering Zoomcamp by DataTalks.Club</strong> — <a href="https://github.com/DataTalksClub/data-engineering-zoomcamp">https://github.com/DataTalksClub/data-engineering-zoomcamp</a></li>
-          <li><strong>IBM Data Engineering Professional Certificate</strong> — <a href="https://www.coursera.org/professional-certificates/ibm-data-engineer">https://www.coursera.org/professional-certificates/ibm-data-engineer</a></li>
-        </ul>
-
-        <h4>Documentation</h4>
-        <ul>
-          <li><strong>PostgreSQL Documentation</strong> — <a href="https://www.postgresql.org/docs/">https://www.postgresql.org/docs/</a></li>
-          <li><strong>Docker Documentation</strong> — <a href="https://docs.docker.com/">https://docs.docker.com/</a></li>
-        </ul>
-
-        <h4>YouTube</h4>
-        <ul>
-          <li><strong>Seattle Data Guy</strong> — <a href="https://www.youtube.com/@SeattleDataGuy">https://www.youtube.com/@SeattleDataGuy</a></li>
-          <li><strong>Zach Wilson</strong> — <a href="https://www.youtube.com/@ZachWilsonData">https://www.youtube.com/@ZachWilsonData</a></li>
-        </ul>
-
-        <h4>Practice</h4>
-        <ul>
-          <li><strong>PGExercises</strong> — <a href="https://pgexercises.com/">https://pgexercises.com/</a></li>
-          <li><strong>DataLemur</strong> — <a href="https://datalemur.com/">https://datalemur.com/</a></li>
-        </ul>
-
-        <h4>Books</h4>
-        <ul>
-          <li><strong>Designing Data-Intensive Applications by Martin Kleppmann</strong> — <a href="https://dataintensive.net/">https://dataintensive.net/</a></li>
-          <li><strong>Fundamentals of Data Engineering by Joe Reis &amp; Matt Housley</strong> — <a href="https://www.oreilly.com/library/view/fundamentals-of-data/9781098108298/">https://www.oreilly.com/library/view/fundamentals-of-data/9781098108298/</a></li>
-        </ul>
-      </article>
-
-      <!-- Intermediate -->
-      <article id="data-engineering-intermediate">
-        <h3>Intermediate</h3>
-
-        <h4>Courses</h4>
-        <ul>
-          <li><strong>Data Engineering with Apache Spark</strong> — <a href="https://www.databricks.com/learn">https://www.databricks.com/learn</a></li>
-          <li><strong>AWS Certified Data Engineer Training</strong> — <a href="https://aws.amazon.com/training/">https://aws.amazon.com/training/</a></li>
-        </ul>
-
-        <h4>Documentation</h4>
-        <ul>
-          <li><strong>Apache Airflow Documentation</strong> — <a href="https://airflow.apache.org/docs/">https://airflow.apache.org/docs/</a></li>
-          <li><strong>dbt Documentation</strong> — <a href="https://docs.getdbt.com/">https://docs.getdbt.com/</a></li>
-          <li><strong>Apache Spark Documentation</strong> — <a href="https://spark.apache.org/docs/latest/">https://spark.apache.org/docs/latest/</a></li>
-        </ul>
-
-        <h4>YouTube</h4>
-        <ul>
-          <li><strong>Andreas Kretz (Plumbers of Data Science)</strong> — <a href="https://www.youtube.com/@AndreasKretz">https://www.youtube.com/@AndreasKretz</a></li>
-          <li><strong>Data Engineering Academy</strong> — <a href="https://www.youtube.com/">https://www.youtube.com/</a></li>
-        </ul>
-
-        <h4>Practice</h4>
-        <ul>
-          <li><strong>dbt Learn Courses</strong> — <a href="https://courses.getdbt.com/">https://courses.getdbt.com/</a></li>
-          <li><strong>Kaggle BigQuery Datasets</strong> — <a href="https://www.kaggle.com/datasets">https://www.kaggle.com/datasets</a></li>
-        </ul>
-
-        <h4>Books</h4>
-        <ul>
-          <li><strong>Database Internals by Alex Petrov</strong> — <a href="https://www.databass.dev/">https://www.databass.dev/</a></li>
-          <li><strong>Data Pipelines Pocket Reference by James Densmore</strong> — <a href="https://www.oreilly.com/library/view/data-pipelines-pocket/9781492087823/">https://www.oreilly.com/library/view/data-pipelines-pocket/9781492087823/</a></li>
-        </ul>
-      </article>
+      <div class="tree-col" id="treeCol" aria-live="polite">
+        <!-- default state; replaced by the tree on hover -->
+        <div class="empty" id="emptyState">
+          <p class="empty-kicker" data-i18n="empty.kicker">Start exploring</p>
+          <p class="dock-kicker"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/></svg><span data-i18n="empty.docked">All fields</span></p>
+          <h2 data-i18n="empty.title">Which one sounds like you?</h2>
+          <div class="empty-list" id="emptyList"></div>
+        </div>
+        <div class="tree" id="tree" hidden></div>
+      </div>
     </section>
 
-    <hr>
+    <div class="qotd-slot" id="qotdSlot"></div>
 
-    <!-- 3. Data Science & AI/ML -->
-    <section id="data-science-ai-ml">
-      <h2>Data Science &amp; AI/ML</h2>
-      <p class="section-description">
-        Resources covering statistics, machine learning, deep learning, AI tools, and practical projects.
-      </p>
-
-      <!-- Beginner -->
-      <article id="data-science-ai-ml-beginner">
-        <h3>Beginner</h3>
-
-        <h4>Courses</h4>
-        <ul>
-          <li><strong>Machine Learning Specialization by Andrew Ng</strong> — <a href="https://www.coursera.org/specializations/machine-learning-introduction">https://www.coursera.org/specializations/machine-learning-introduction</a></li>
-          <li><strong>Fast.ai Practical Deep Learning for Coders</strong> — <a href="https://course.fast.ai/">https://course.fast.ai/</a></li>
-        </ul>
-
-        <h4>Documentation</h4>
-        <ul>
-          <li><strong>Scikit-learn Documentation</strong> — <a href="https://scikit-learn.org/stable/">https://scikit-learn.org/stable/</a></li>
-          <li><strong>PyTorch Documentation</strong> — <a href="https://pytorch.org/docs/stable/index.html">https://pytorch.org/docs/stable/index.html</a></li>
-        </ul>
-
-        <h4>YouTube</h4>
-        <ul>
-          <li><strong>3Blue1Brown (Essence of Linear Algebra &amp; Neural Networks)</strong> — <a href="https://www.youtube.com/@3blue1brown">https://www.youtube.com/@3blue1brown</a></li>
-          <li><strong>StatQuest with Josh Starmer</strong> — <a href="https://www.youtube.com/@statquest">https://www.youtube.com/@statquest</a></li>
-        </ul>
-
-        <h4>Practice</h4>
-        <ul>
-          <li><strong>Kaggle Competitions for Beginners</strong> — <a href="https://www.kaggle.com/competitions">https://www.kaggle.com/competitions</a></li>
-          <li><strong>Google Colab</strong> — <a href="https://colab.research.google.com/">https://colab.research.google.com/</a></li>
-        </ul>
-
-        <h4>Books</h4>
-        <ul>
-          <li><strong>Hands-On Machine Learning by Aurélien Géron</strong> — <a href="https://www.oreilly.com/library/view/hands-on-machine-learning/9781098125967/">https://www.oreilly.com/library/view/hands-on-machine-learning/9781098125967/</a></li>
-          <li><strong>An Introduction to Statistical Learning (ISLR)</strong> — <a href="https://www.statlearning.com/">https://www.statlearning.com/</a></li>
-        </ul>
-      </article>
-
-      <!-- Intermediate -->
-      <article id="data-science-ai-ml-intermediate">
-        <h3>Intermediate</h3>
-
-        <h4>Courses</h4>
-        <ul>
-          <li><strong>Deep Learning Specialization by DeepLearning.AI</strong> — <a href="https://www.coursera.org/specializations/deep-learning">https://www.coursera.org/specializations/deep-learning</a></li>
-          <li><strong>Stanford CS229: Machine Learning</strong> — <a href="https://cs229.stanford.edu/">https://cs229.stanford.edu/</a></li>
-        </ul>
-
-        <h4>Documentation</h4>
-        <ul>
-          <li><strong>Hugging Face Transformers Documentation</strong> — <a href="https://huggingface.co/docs/transformers/index">https://huggingface.co/docs/transformers/index</a></li>
-          <li><strong>TensorFlow API Documentation</strong> — <a href="https://www.tensorflow.org/api_docs">https://www.tensorflow.org/api_docs</a></li>
-        </ul>
-
-        <h4>YouTube</h4>
-        <ul>
-          <li><strong>Andrej Karpathy</strong> — <a href="https://www.youtube.com/@AndrejKarpathy">https://www.youtube.com/@AndrejKarpathy</a></li>
-          <li><strong>Yannic Kilcher</strong> — <a href="https://www.youtube.com/@YannicKilcher">https://www.youtube.com/@YannicKilcher</a></li>
-        </ul>
-
-        <h4>Practice</h4>
-        <ul>
-          <li><strong>Hugging Face Course &amp; Spaces</strong> — <a href="https://huggingface.co/course/chapter1/1">https://huggingface.co/course/chapter1/1</a></li>
-          <li><strong>Papers with Code</strong> — <a href="https://paperswithcode.com/">https://paperswithcode.com/</a></li>
-        </ul>
-
-        <h4>Books</h4>
-        <ul>
-          <li><strong>Deep Learning by Ian Goodfellow, Yoshua Bengio, &amp; Aaron Courville</strong> — <a href="https://www.deeplearningbook.org/">https://www.deeplearningbook.org/</a></li>
-          <li><strong>Feature Engineering for Machine Learning by Alice Zheng</strong> — <a href="https://www.oreilly.com/library/view/feature-engineering-for/9781491953235/">https://www.oreilly.com/library/view/feature-engineering-for/9781491953235/</a></li>
-        </ul>
-      </article>
+    <!-- ============ Business value ============ -->
+    <section class="section" id="value">
+      <div class="section-head">
+        <p class="eyebrow" data-i18n="value.eyebrow">For business owners</p>
+        <h2 data-i18n="value.title">What each role brings to your business</h2>
+        <p class="muted" data-i18n="value.lede">Thinking about hiring for data or AI? Here’s what each role delivers, and the signs that you need one.</p>
+      </div>
+      <div class="value-grid" id="valueGrid"></div>
+      <div class="value-dots" id="valueDots" aria-label="Cards"></div>
     </section>
 
-    <hr>
-
-    <!-- Contribution Section -->
-    <section id="contributing">
-      <h2>Contributing</h2>
-      <p>
-        Know a great learning resource? Feel free to submit a Pull Request or open an Issue on the GitHub repository to suggest additions or improvements.
-      </p>
+    <!-- ============ Contributing ============ -->
+    <section class="section contribute" id="contributing">
+      <div>
+        <h2 data-i18n="suggest.title">Know a great resource?</h2>
+        <p class="muted" data-i18n-html="suggest.lede">Share a course, book, channel or practice site — or list your training school. It takes a minute, no account needed, and every suggestion is reviewed before it goes on the page.</p>
+      </div>
+      <a class="btn solid lg" href="https://github.com/data-resources-mm/data-resources-mm.github.io/issues/new" target="_blank" rel="noopener" data-i18n="nav.suggest" data-suggest>Suggest</a>
     </section>
 
+    <noscript>
+      <p class="noscript">This map needs JavaScript. You can browse every resource in the
+        <a href="https://github.com/data-resources-mm/data-resources-mm.github.io/blob/main/data.js">data.js file on GitHub</a>.</p>
+    </noscript>
   </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>Last updated: 2026-07-25</p>
-    <p>Hosted on GitHub Pages</p>
-    <p>&copy; Learning Resources Hub</p>
+  <footer class="footer">
+    <p data-i18n="footer.updated">Last updated: 2026-09-23 · Hosted on GitHub Pages</p>
+    <p data-i18n="footer.rights">&copy; Learning Resources Hub. Resources belong to their respective authors.</p>
   </footer>
 
+  <!-- ============ Learn drawer ============ -->
+  <div class="scrim" id="scrim" hidden></div>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" aria-hidden="true" tabindex="-1">
+    <header class="drawer-head">
+      <div>
+        <p class="eyebrow" id="drawerKicker" data-i18n="drawer.kicker">Learning sources</p>
+        <h2 id="drawerTitle">—</h2>
+        <p class="muted small" id="drawerDesc"></p>
+      </div>
+      <button class="icon-btn" id="drawerClose" type="button" aria-label="Close learning sources" data-i18n-aria="drawer.close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </header>
+    <div class="drawer-controls">
+      <div class="chips" id="fieldTabs" role="tablist" aria-label="Field"></div>
+      <div class="seg" id="levelTabs" role="tablist" aria-label="Level">
+        <button type="button" role="tab" data-level="beginner" data-i18n="level.beginner">Beginner</button>
+        <button type="button" role="tab" data-level="intermediate" data-i18n="level.intermediate">Intermediate</button>
+      </div>
+    </div>
+    <div class="drawer-body" id="drawerBody"></div>
+  </aside>
+
+  <!-- ============ Suggest panel ============ -->
+  <aside class="drawer suggest" id="suggest" role="dialog" aria-modal="true" aria-labelledby="suggestTitle" aria-hidden="true" tabindex="-1">
+    <header class="drawer-head">
+      <div>
+        <p class="eyebrow" data-i18n="sg.kicker">Help improve this page</p>
+        <h2 id="suggestTitle" data-i18n="sg.title">Suggest</h2>
+        <p class="muted small" id="sgLede"></p>
+      </div>
+      <button class="icon-btn" id="suggestClose" type="button" aria-label="Close" data-i18n-aria="sg.close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </header>
+    <div class="drawer-body sg-body">
+
+      <!-- 1. change to the page -->
+      <section class="sg-card" data-sg="change">
+        <button type="button" class="sg-head" aria-expanded="false" aria-controls="sgChangeForm">
+          <span class="sg-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16zM13.5 6.5l4 4"/></svg></span>
+          <span class="sg-txt"><b data-i18n="sg.change.title">Suggest a change to this page</b>
+            <span data-i18n="sg.change.desc">Spotted a mistake, a missing tool, or have an idea to make the page better?</span></span>
+          <svg class="sg-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+        <form class="sg-form" id="sgChangeForm" hidden novalidate>
+          <label><span data-i18n="sg.f.kind">What kind of change?</span>
+            <select name="kind">
+              <option value="Fix a mistake" data-i18n="sg.kind.fix">Fix a mistake</option>
+              <option value="Missing or wrong tool" data-i18n="sg.kind.tool">Missing or wrong tool</option>
+              <option value="Broken link" data-i18n="sg.kind.link">Broken link</option>
+              <option value="Translation" data-i18n="sg.kind.tr">Translation (Myanmar)</option>
+              <option value="Idea for the page" data-i18n="sg.kind.idea">Idea for the page</option>
+              <option value="Other" data-i18n="sg.kind.other">Other</option>
+            </select></label>
+          <label><span data-i18n="sg.f.where">Which part? <i>(optional)</i></span>
+            <select name="field" class="sg-fields"><option value="" data-i18n="sg.f.whole">The whole page</option></select></label>
+          <label><span data-i18n="sg.f.details">Details</span>
+            <textarea name="details" rows="5" required data-i18n-ph="sg.ph.details" placeholder="What should change, and why?"></textarea></label>
+          <label class="hp" aria-hidden="true">Website<input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+          <label><span data-i18n="sg.f.contact">Your email or Telegram (optional)</span>
+            <input name="contact" type="text" autocomplete="email" data-i18n-ph="sg.ph.contact" placeholder="Only used if we need to ask you something"></label>
+          <p class="sg-err" hidden data-i18n="sg.err.details">Please write a few words about the change.</p>
+          <p class="sg-err sg-send-err" hidden data-i18n="sg.err.send">Couldn’t send. Check your connection and try again.</p>
+          <button type="submit" class="btn solid sg-submit" data-i18n="sg.submit">Send suggestion</button>
+        </form>
+        <div class="sg-done" hidden>
+          <span class="sg-done-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></span>
+          <div><b data-i18n="sg.sent.title">Thanks — suggestion received!</b>
+            <p class="muted small sg-done-body"></p>
+            <button type="button" class="btn ghost sg-again" data-i18n="sg.again">Send another</button></div>
+        </div>
+      </section>
+
+      <!-- 2. new resource / training school -->
+      <section class="sg-card" data-sg="resource">
+        <button type="button" class="sg-head" aria-expanded="false" aria-controls="sgResForm">
+          <span class="sg-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
+          <span class="sg-txt"><b data-i18n="sg.res.title">Suggest a new resource</b>
+            <span data-i18n="sg.res.desc">Share a course, book, channel or practice site — or list your training school.</span></span>
+          <svg class="sg-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+        <form class="sg-form" id="sgResForm" hidden novalidate>
+          <div class="seg sg-type" role="radiogroup">
+            <button type="button" role="radio" aria-checked="true" data-type="resource" data-i18n="sg.type.resource">Learning resource</button>
+            <button type="button" role="radio" aria-checked="false" data-type="school" data-i18n="sg.type.school">Training school</button>
+          </div>
+          <label><span data-i18n="sg.f.name">Name</span>
+            <input name="name" type="text" required data-i18n-ph="sg.ph.name" placeholder="e.g. SQL for Beginners"></label>
+          <label><span data-i18n="sg.f.link">Link</span>
+            <input name="link" type="url" required placeholder="https://"></label>
+          <label><span data-i18n="sg.f.field">Field</span>
+            <select name="field" class="sg-fields"><option value="Several fields" data-i18n="sg.f.several">Several fields</option></select></label>
+          <div class="sg-row">
+            <label><span data-i18n="sg.f.level">Level</span>
+              <select name="level">
+                <option value="Beginner" data-i18n="level.beginner">Beginner</option>
+                <option value="Intermediate" data-i18n="level.intermediate">Intermediate</option>
+                <option value="All levels" data-i18n="sg.f.all">All levels</option>
+              </select></label>
+            <label class="only-resource"><span data-i18n="sg.f.cat">Type</span>
+              <select name="category">
+                <option value="Courses" data-i18n="cat.Courses">Courses</option>
+                <option value="Documentation" data-i18n="cat.Documentation">Documentation</option>
+                <option value="YouTube" data-i18n="cat.YouTube">YouTube</option>
+                <option value="Practice" data-i18n="cat.Practice">Practice</option>
+                <option value="Books" data-i18n="cat.Books">Books</option>
+              </select></label>
+          </div>
+          <div class="sg-row only-school" hidden>
+            <label><span data-i18n="sg.f.location">Location</span>
+              <input name="location" type="text" data-i18n-ph="sg.ph.location" placeholder="e.g. Yangon, Mandalay, Online"></label>
+            <label><span data-i18n="sg.f.lang">Teaching language</span>
+              <select name="language">
+                <option value="Myanmar" data-i18n="sg.lang.my">Myanmar</option>
+                <option value="English" data-i18n="sg.lang.en">English</option>
+                <option value="Myanmar & English" data-i18n="sg.lang.both">Myanmar & English</option>
+              </select></label>
+          </div>
+          <label><span data-i18n="sg.f.cost">Cost</span>
+            <select name="cost">
+              <option value="Free" data-i18n="sg.cost.free">Free</option>
+              <option value="Paid" data-i18n="sg.cost.paid">Paid</option>
+              <option value="Free and paid options" data-i18n="sg.cost.both">Free and paid options</option>
+            </select></label>
+          <label><span data-i18n="sg.f.why">Why is it good? <i>(optional)</i></span>
+            <textarea name="notes" rows="3" data-i18n-ph="sg.ph.why" placeholder="Who is it for, what does it teach well?"></textarea></label>
+          <label class="sg-check"><input type="checkbox" name="owner"><span data-i18n="sg.f.owner">I run or work for this school / resource</span></label>
+          <label class="hp" aria-hidden="true">Website<input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+          <label><span data-i18n="sg.f.contact">Your email or Telegram (optional)</span>
+            <input name="contact" type="text" autocomplete="email" data-i18n-ph="sg.ph.contact" placeholder="Only used if we need to ask you something"></label>
+          <p class="sg-err" hidden data-i18n="sg.err.res">Please add a name and a full link (starting with https://).</p>
+          <p class="sg-err sg-send-err" hidden data-i18n="sg.err.send">Couldn’t send. Check your connection and try again.</p>
+          <button type="submit" class="btn solid sg-submit" data-i18n="sg.submit">Send suggestion</button>
+        </form>
+        <div class="sg-done" hidden>
+          <span class="sg-done-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></span>
+          <div><b data-i18n="sg.sent.title">Thanks — suggestion received!</b>
+            <p class="muted small sg-done-body"></p>
+            <button type="button" class="btn ghost sg-again" data-i18n="sg.again">Send another</button></div>
+        </div>
+      </section>
+
+      <p class="sg-note muted small" id="sgNote"></p>
+    </div>
+  </aside>
+
+
+  <script src="config.js"></script>
+  <script src="data.js"></script>
+  <script src="resources.js"></script>
+  <script src="schools.js"></script>
+  <script src="quotes.js"></script>
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
-
